@@ -49,17 +49,37 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="lLg-qZ-ydF"/>
                                 </connections>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hIi-kb-oOv">
+                                <rect key="frame" x="0.0" y="-500" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="ioE-XJ-fJe" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="4Sv-0U-F2B"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="hIi-kb-oOv" secondAttribute="bottom" constant="500" id="7Nj-Ng-B00"/>
+                            <constraint firstItem="hIi-kb-oOv" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="GJD-Ok-0cM"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="ioE-XJ-fJe" secondAttribute="bottom" id="UUm-0N-cGg"/>
+                            <constraint firstItem="hIi-kb-oOv" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="-500" id="kPE-em-ObC"/>
+                            <constraint firstAttribute="trailing" secondItem="hIi-kb-oOv" secondAttribute="trailing" id="nxQ-oZ-JOt"/>
                             <constraint firstAttribute="trailing" secondItem="ioE-XJ-fJe" secondAttribute="trailing" id="x7h-uW-qaN"/>
                             <constraint firstItem="ioE-XJ-fJe" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="xfm-HE-iee"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="UQn-3x-5L6" appends="YES" id="dTs-k7-ZY7"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="shadeView" destination="hIi-kb-oOv" id="dCg-dK-LWC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="UQn-3x-5L6">
+                    <connections>
+                        <action selector="handlePan:" destination="vXZ-lx-hvc" id="ym7-lU-z6h"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
         </scene>
     </scenes>

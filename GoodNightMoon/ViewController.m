@@ -11,6 +11,7 @@
 
 @interface ViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 @property NSMutableArray *moonImages;
+@property (strong, nonatomic) IBOutlet UIView *shadeView;
 @end
 
 @implementation ViewController
@@ -24,6 +25,13 @@
     [self.moonImages addObject:[UIImage imageNamed:@"moon_4"]];
     [self.moonImages addObject:[UIImage imageNamed:@"moon_5"]];
     [self.moonImages addObject:[UIImage imageNamed:@"moon_6"]];
+}
+
+- (IBAction)handlePan:(UIPanGestureRecognizer *)gesture{
+    CGPoint point = [gesture translationInView:gesture.view];
+    self.shadeView.center = CGPointMake(self.shadeView.center.x
+                                      , self.shadeView.center.y + point.y);
+    [gesture setTranslation:CGPointMake(0,0) inView:gesture.view];
 }
 
 - (void)didReceiveMemoryWarning {
